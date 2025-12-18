@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naturale Fruit | Avisos</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --verde:#2ecc71;
+  --verde-escuro:#145a32;
+  --fundo:#ffffff;
+  --texto:#444;
+  --card:#ffffff;
+  --sombra:rgba(0,0,0,.15);
+}
+
+/* DARK MODE */
+body.dark{
+  --fundo:#0f1f18;
+  --texto:#e6e6e6;
+  --card:#182f25;
+  --sombra:rgba(0,0,0,.5);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--fundo);
+  color:var(--texto);
+  transition:.4s;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--verde-escuro),var(--verde));
+  padding:25px 40px;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+header h1{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* BOTÃO DARK */
+.toggle{
+  background:white;
+  color:#145a32;
+  border:none;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.titulo{
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  font-size:2.4rem;
+  color:var(--verde-escuro);
+  margin-bottom:50px;
+}
+
+/* AVISO */
+.aviso-principal{
+  background:var(--card);
+  border-radius:22px;
+  box-shadow:0 15px 35px var(--sombra);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+  animation:fade .8s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* IMAGEM */
+.aviso-imagem{
+  position:relative;
+}
+
+.aviso-imagem img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.aviso-imagem::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent,rgba(0,0,0,.35));
+}
+
+/* TEXTO */
+.aviso-texto{
+  padding:45px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.aviso-texto h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.9rem;
+  margin-bottom:30px;
+  color:var(--verde);
+}
+
+.bloco{
+  margin-bottom:28px;
+}
+
+.bloco h4{
+  font-size:1.1rem;
+  margin-bottom:10px;
+  color:var(--verde);
+}
+
+.bloco p{
+  line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+  background:linear-gradient(135deg,var(--verde-escuro),#0b3d22);
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:80px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25d366;
+  color:white;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  text-decoration:none;
+  z-index:999;
+}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+  .aviso-principal{
+    grid-template-columns:1fr;
+  }
+
+  .aviso-texto{
+    padding:30px;
+  }
+
+  header{
+    gap:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:15px;">
+    <img src="logo-naturale.png" style="width:60px;background:white;padding:6px;border-radius:10px;">
+    <h1>Naturale Fruit</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="index.html#produtos">Produtos</a>
+    <a href="avisos.html">Avisos</a>
+    <button class="toggle" onclick="toggleDark()">🌙</button>
+  </nav>
+</header>
+
+<section class="container">
+  <h2 class="titulo">Avisos Importantes</h2>
+
+  <div class="aviso-principal">
+
+    <div class="aviso-imagem">
+      <img src="aviso1.jpg" alt="Avisos Naturale Fruit">
+    </div>
+
+    <div class="aviso-texto">
+      <h3>Entrega & Funcionamento</h3>
+
+      <div class="bloco">
+        <h4>📦 Taxa de Entrega</h4>
+        <p><strong>Cohab Cristo Rei e Cristo Rei:</strong><br>R$ 3,00</p>
+        <p style="margin-top:10px;">
+          <strong>Unipark, Santa Luzia, Jardim das Oliveiras e Parque do Lago:</strong><br>
+          R$ 2,00
+        </p>
+      </div>
+
+      <div class="bloco">
+        <h4>⏰ Horário de Funcionamento</h4>
+        <p>Das <strong>13:30 às 16:00 horas</strong></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Naturale Fruit - Avisos</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/556593380406" target="_blank">💬</a>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>

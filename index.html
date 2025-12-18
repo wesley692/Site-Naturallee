@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naturale Fruit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --verde:#2ecc71;
+  --verde-escuro:#145a32;
+  --bg:#ffffff;
+  --bg-sec:#eafaf1;
+  --texto:#2c2c2c;
+  --card:#ffffff;
+  --sombra:rgba(0,0,0,.15);
+}
+
+body.dark{
+  --bg:#0f1f17;
+  --bg-sec:#14281d;
+  --texto:#e8f5ee;
+  --card:#1b3a2b;
+  --sombra:rgba(0,0,0,.6);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:linear-gradient(180deg,var(--bg),var(--bg-sec));color:var(--texto);transition:.3s;}
+
+header{
+  background:linear-gradient(135deg,var(--verde-escuro),var(--verde));
+  padding:25px 40px;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+header h1{font-family:'Playfair Display',serif;font-size:2.2rem;}
+nav a{color:white;margin-left:20px;text-decoration:none;font-weight:600;}
+.toggle{margin-left:20px;cursor:pointer;}
+
+.banner{
+  background:linear-gradient(rgba(20,90,50,.65),rgba(20,90,50,.65)),
+  url('https://images.unsplash.com/photo-1574226516831-e1dff420e43e') center/cover no-repeat;
+  padding:120px 20px;
+  text-align:center;
+  color:white;
+}
+
+.container{max-width:1200px;margin:auto;padding:70px 20px;}
+.titulo{text-align:center;font-family:'Playfair Display',serif;font-size:2.4rem;margin-bottom:50px;}
+
+.produtos{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:40px;
+  max-width:900px;
+  margin:auto;
+}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:0 10px 25px var(--sombra);
+  overflow:hidden;
+}
+
+.card img{width:100%;height:240px;object-fit:cover;}
+.card-content{padding:25px;}
+
+.card-content h3{color:var(--verde);}
+.price{font-weight:bold;color:var(--verde);margin-top:5px;}
+.total{margin:10px 0;font-weight:700;color:var(--verde-escuro);}
+
+.qtd{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:15px 0;
+}
+
+.qtd button{
+  width:32px;height:32px;border:none;border-radius:6px;
+  background:var(--verde);color:white;font-size:18px;cursor:pointer;
+}
+
+.qtd span{font-weight:600;min-width:20px;text-align:center;}
+
+.ingredientes label{
+  display:block;font-size:.9rem;margin-bottom:6px;
+}
+
+.pedir{
+  margin-top:15px;width:100%;padding:12px;border:none;
+  border-radius:10px;background:var(--verde);
+  color:white;font-weight:600;cursor:pointer;
+}
+
+.whatsapp{
+  position:fixed;bottom:25px;right:25px;
+  background:#25d366;width:65px;height:65px;
+  border-radius:50%;display:flex;
+  align-items:center;justify-content:center;
+  color:white;font-size:34px;text-decoration:none;
+}
+
+footer{
+  background:linear-gradient(135deg,var(--verde-escuro),#0b3d22);
+  color:white;text-align:center;padding:30px;margin-top:80px;
+}
+
+@media(max-width:700px){
+  .produtos{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Naturale Fruit</h1>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="avisos.html">Avisos</a>
+    <span class="toggle" onclick="toggleDark()">🌙</span>
+  </nav>
+</header>
+
+<section class="banner">
+  <h2>Frutas frescas todos os dias</h2>
+  <p>Qualidade, sabor e saúde 🍓</p>
+</section>
+
+<section class="container" id="produtos">
+<h2 class="titulo">Nossos Produtos</h2>
+
+<div class="produtos">
+
+<!-- PRODUTO 1 -->
+<div class="card" data-preco="17.99">
+  <img src="Imagem do WhatsApp de 2025-12-16 à(s) 00.22.01_20f419fe.jpg">
+  <div class="card-content">
+    <h3>Manga Temperada 250ml</h3>
+    <div class="price">Preço: R$ 17,99</div>
+
+    <div class="qtd">
+      <button onclick="alterarQtd(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="alterarQtd(this,1)">+</button>
+    </div>
+
+    <div class="total">Total: R$ 17,99</div>
+
+    <div class="ingredientes">
+      <strong>Não quero:</strong>
+      <label><input type="checkbox" value="Sazon de salada"> Sazon de salada</label>
+      <label><input type="checkbox" value="Lemon pepper"> Lemon pepper</label>
+      <label><input type="checkbox" value="Páprica picante"> Páprica picante</label>
+      <label><input type="checkbox" value="Pimenta do reino"> Pimenta do reino</label>
+      <label><input type="checkbox" value="Sal"> Sal</label>
+    </div>
+
+    <button class="pedir" onclick="pedir('Manga Temperada 250ml', this)">Pedir agora</button>
+  </div>
+</div>
+
+<!-- PRODUTO 2 -->
+<div class="card" data-preco="16.99">
+  <img src="Imagem do WhatsApp de 2025-12-16 à(s) 00.22.01_a070f21c.jpg">
+  <div class="card-content">
+    <h3>Salada de Frutas 250ml</h3>
+    <div class="price">Preço: R$ 16,99</div>
+
+    <div class="qtd">
+      <button onclick="alterarQtd(this,-1)">−</button>
+      <span>1</span>
+      <button onclick="alterarQtd(this,1)">+</button>
+    </div>
+
+    <div class="total">Total: R$ 16,99</div>
+
+    <div class="ingredientes">
+      <strong>Não quero:</strong>
+      <label><input type="checkbox" value="Kiwi"> Kiwi</label>
+      <label><input type="checkbox" value="Abacaxi"> Abacaxi</label>
+      <label><input type="checkbox" value="Morango"> Morango</label>
+      <label><input type="checkbox" value="Uva"> Uva</label>
+      <label><input type="checkbox" value="Leite condensado"> Leite condensado</label>
+      <label><input type="checkbox" value="Leite em pó"> Leite em pó</label>
+    </div>
+
+    <button class="pedir" onclick="pedir('Salada de Frutas 250ml', this)">Pedir agora</button>
+  </div>
+</div>
+
+</div>
+</section>
+
+<footer>
+  <p>📞 (65) 99338-0406</p>
+  <p>© 2025 Naturale Fruit</p>
+</footer>
+
+<a class="whatsapp" href="https://api.whatsapp.com/send?phone=556593380406&text=Olá%20Naturale%20Fruit!%20Gostaria%20de%20fazer%20um%20pedido%20🍓" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
+
+function alterarQtd(btn,valor){
+  const card = btn.closest(".card");
+  const span = btn.parentElement.querySelector("span");
+  let qtd = parseInt(span.innerText);
+  qtd += valor;
+  if(qtd < 1) qtd = 1;
+  span.innerText = qtd;
+  atualizarTotal(card);
+}
+
+function atualizarTotal(card){
+  const preco = parseFloat(card.dataset.preco);
+  const qtd = parseInt(card.querySelector(".qtd span").innerText);
+  const total = (preco * qtd).toFixed(2).replace('.',',');
+  card.querySelector(".total").innerText = `Total: R$ ${total}`;
+}
+
+function pedir(produto, btn){
+  const card = btn.closest(".card");
+  const qtd = card.querySelector(".qtd span").innerText;
+  const total = card.querySelector(".total").innerText.replace("Total: ","");
+  const checks = card.querySelectorAll('input:checked');
+
+  let naoQuer = [];
+  checks.forEach(c => naoQuer.push(c.value));
+
+  let msg = `Olá Naturale Fruit! Gostaria de fazer um pedido 🍓\n\nProduto: ${produto}\nQuantidade: ${qtd}\n${total}`;
+
+  if(naoQuer.length > 0){
+    msg += `\nNão quero: ${naoQuer.join(', ')}`;
+  }
+
+  window.open(
+    `https://api.whatsapp.com/send?phone=556593380406&text=${encodeURIComponent(msg)}`,
+    '_blank'
+  );
+}
+</script>
+
+</body>
+</html>
+
